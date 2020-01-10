@@ -8,6 +8,7 @@ const router = new Router()
 
 router.use(async (ctx, next) => {
     ctx.set("access-control-allow-origin", "*")
+    await next()
 })
 
 router.get("/", async ctx => {
