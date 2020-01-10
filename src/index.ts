@@ -1,6 +1,7 @@
 import Koa from "koa"
 import Router from "koa-router"
 import $ from "transform-ts"
+import { fetchMetaInfo } from "./fetch-meta-info"
 
 const app = new Koa()
 const router = new Router()
@@ -16,7 +17,7 @@ router.get("/api/v1/fetch", async ctx => {
     const urlObj = new URL(url)
     if (!["http", "https"].includes(urlObj.protocol)) ctx.throw(400, "Unknown Protocol")
 
-    await fetchMetaInfo(urlObj)
+    ctx.body = await fetchMetaInfo(urlObj)
 })
 
 app.use(router.routes())
