@@ -2,9 +2,12 @@
   "name": "ogp-syutoku-kun",
   "version": "1.0.0",
   "description": "OGPを取得してくれます",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "AGPLv3",
   "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
