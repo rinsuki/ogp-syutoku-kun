@@ -15,7 +15,7 @@ router.get("/api/v1/fetch", async ctx => {
         url: $.string,
     }).transformOrThrow(ctx.query)
     const urlObj = new URL(url)
-    if (!["http", "https"].includes(urlObj.protocol)) ctx.throw(400, "Unknown Protocol")
+    if (!["http:", "https:"].includes(urlObj.protocol)) ctx.throw(400, "Unknown Protocol")
 
     ctx.body = await fetchMetaInfo(urlObj)
 })
