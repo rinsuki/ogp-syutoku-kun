@@ -6,6 +6,10 @@ import { fetchMetaInfo } from "./fetch-meta-info"
 const app = new Koa()
 const router = new Router()
 
+router.use(async (ctx, next) => {
+    ctx.set("access-control-allow-origin", "*")
+})
+
 router.get("/", async ctx => {
     ctx.body = `<meta charset="UTF-8">→→→ <a href="https://github.com/rinsuki/ogp-syutoku-kun">https://github.com/rinsuki/ogp-syutoku-kun</a> ←←←`
 })
