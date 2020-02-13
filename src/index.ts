@@ -23,6 +23,7 @@ router.get("/api/v1/fetch", async ctx => {
     if (!["http:", "https:"].includes(urlObj.protocol)) ctx.throw(400, "Unknown Protocol")
 
     ctx.body = await fetchMetaInfo(urlObj)
+    ctx.set('Cache-Control', 'public; max-age=86400')
 })
 
 app.use(router.routes())
